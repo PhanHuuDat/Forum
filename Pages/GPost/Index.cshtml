@@ -1,0 +1,25 @@
+﻿@page
+@model Forum.Pages.GPost.IndexModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var obj in Model.columnNames)
+            {
+                <th scope="col">@obj</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.Posts)
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.Title</td>
+                <td>@obj.Likes</td>
+                <td>@obj.Views</td>
+            </tr>
+        }
+    </tbody>
+</table>

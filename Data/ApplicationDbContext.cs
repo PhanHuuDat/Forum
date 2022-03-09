@@ -9,7 +9,11 @@ namespace Forum.Data
         {
 
         }
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Account> Account { get; set; }
+        public DbSet<Post> Post { get; set; }
+        public DbSet<Like> Like { get; set; }
+        public DbSet<View> View { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<School> School { get; set; }
     }
 }

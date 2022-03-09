@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace Forum.Models
 {
@@ -8,10 +9,12 @@ namespace Forum.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public DateTime PostTime { get; set; }
         public int Views { get; set; }
         public int Likes { get; set; }
         public int UserId { get; set; }
         public Account Account { get; set; }
-        public string Image { get; set; }
+        public string AttchmentUrl { get; set; }
+
     }
 }
