@@ -1,0 +1,64 @@
+﻿.mainLogo {
+    width: 2.7rem;
+    height: 2.7rem;
+}
+
+.banner {
+    width: 10rem;
+    height: 2.7rem;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+}
+
+footer > div {
+    height: 2rem;
+}
+
+.avatar {
+    display: block;
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.icoTool {
+    margin: 0 1.7rem;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.icoTool:hover, .avatar:hover {
+    cursor:pointer;
+}
+
+.notifyMnHolder {
+    position: relative;
+}
+
+.notifyMn {
+    display: block;
+    margin-top: 0.5rem;
+    margin-left: -0.5rem;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    background-color: rgba(235, 232, 232, 0.45);
+    z-index: 1;
+    visibility: hidden;
+    transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+
+.notifyMnHolder:hover .notifyMn {
+    visibility: visible;
+}
