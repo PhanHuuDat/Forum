@@ -1,0 +1,18 @@
+﻿@page
+@model Forum.Pages.SignIn.LogoutModel
+
+<form method="post">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <p>Are you sure to logout?</p>
+
+                <div>
+                    <button class="btn-primary btn" asp-page-handler="Logout">Yes</button>
+                    <button class="btn-primary btn ml-5 border-darl" asp-page-handler="NoLogout">No</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

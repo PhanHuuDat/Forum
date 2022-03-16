@@ -70,3 +70,12 @@ E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Forum.pdb
 E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Forum.genruntimeconfig.cache
 E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\GPost\Index.cshtml.g.cs
 E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\refint\Forum.dll
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\GPost\AddPost.cshtml.g.cs
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\SignIn\Login.cshtml.g.cs
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\SignIn\Register.cshtml.g.cs
+E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\SignIn\Logout.cshtml.g.cs
