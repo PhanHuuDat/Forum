@@ -2,6 +2,7 @@ using Forum.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,8 +27,12 @@ namespace Forum
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(
+                Configuration.GetConnectionString("AuthConnectionString")
+            ));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")
+                Configuration.GetConnectionString("DefaultConnection")
             ));
         }
 
@@ -50,6 +55,7 @@ namespace Forum
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

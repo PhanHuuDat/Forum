@@ -1,0 +1,76 @@
+﻿@page
+@model Forum.Pages.SignIn.LoginModel
+
+<div class="d-flex align-items-center flex-column justify-content-center w-75 h-100">
+    <form method="post" id="signIn" action="">
+        <div asp-validation-summary="All" class="text-danger">
+        </div>
+        <fieldset>
+            <legend class="w-auto">Sign in</legend>
+            @*email*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.Email" for="email">Email</label>
+                    </div>
+                    <div class="col-7">
+                        <input asp-for="Account.Email" type="email" required class="form-control" id="email" aria-describedby="emailWrong" placeholder="Enter email">
+                        <span asp-validation-for="Account.Email" id="emailWrong" class="form-text text-danger"></span>
+                    </div>
+                    <div class="col-1">
+                        <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Enter a registered email"></i>
+                    </div>
+                </div>
+            </div>
+            @*pwd*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.Password">Password</label>
+                    </div>
+                    <div class="col-7">
+                        <input asp-for="Account.Password" type="password" required class="form-control" aria-describedby="pwdWrong" placeholder="Enter password">
+                        <span asp-validation-for="Account.Password" id="pwdWrong" class="form-text text-danger"></span>
+                    </div>
+                    <div class="col-1">
+                        <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Enter a correct password"></i>
+                    </div>
+                </div>
+            </div>
+            @*fg*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8">
+                        <a href="#">Forget password?</a>
+                    </div>
+                </div>
+            </div>
+            @*rm*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <div class="form-check">
+                            <input asp-for="Account.RememberMe" class="form-check-input" type="checkbox" id="forgetMeNot">
+                            <label asp-for="Account.RememberMe" class="form-check-label" for="forgetMeNot">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*btn*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8">
+                        <button type="submit" class="btn btn-outline-secondary">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,107 @@
+﻿@page
+@model Forum.Pages.SignIn.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="d-flex align-items-center flex-column justify-content-center w-75 h-100">
+    <form method="post" id="signIn" action="">
+        <div asp-validation-summary="All" class="text-danger">
+        </div>
+        <fieldset>
+            <legend class="w-auto">Sign up</legend>
+            @*email*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Account.Email" type="email" required class="form-control" id="email" aria-describedby="emailWrong" placeholder="Enter email">
+                        <span asp-validation-for="Account.Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*name*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.Username"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Account.Username" type="text" required class="form-control" id="name" aria-describedby="nameWrong" placeholder="Enter name">
+                        <span asp-validation-for="Account.Username" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*pwd*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.Password" for="pwd"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Account.Password" type="password" required class="form-control" id="pwd" placeholder="Enter password">
+                        <span asp-validation-for="Account.Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*pwd cf*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Account.ConfirmPassword" for="rPwd">Password confirm</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Account.ConfirmPassword" type="password" required class="form-control" id="rPwd" aria-describedby="rePwdWrong" placeholder="Enter password again">
+                        <span asp-validation-for="Account.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*position*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="pos">Position</label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Account.Position" id="pos" class="form-control">
+                            <option selected>Student</option>
+                            <option>Teacher</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            @*policy*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="policy">
+                            <label class="form-check-label" for="policy">
+                                I agree to something...
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*btn*@
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8">
+                        <button type="submit" class="btn btn-outline-secondary">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
