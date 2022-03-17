@@ -19,6 +19,7 @@ namespace Forum.Pages.SignIn
         public async Task<IActionResult> OnPostLogoutAsync()
         {
             await _signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
             return RedirectToPage("Login");
         }
 

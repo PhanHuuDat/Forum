@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Forum.Pages.SignIn
@@ -44,8 +45,10 @@ namespace Forum.Pages.SignIn
                         Email = Account.Email,
                         Position = Account.Position,
                         Password = Account.Password,
-                        ConfirmPassword = Account.ConfirmPassword
-                    };
+                        ConfirmPassword = Account.ConfirmPassword,
+                        SchoolId = Account.SchoolId,
+
+                };
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _applicationDbContext.Add(newAcc);
                     _applicationDbContext.SaveChanges();

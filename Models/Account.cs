@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Forum.Models
 {
@@ -23,6 +24,9 @@ namespace Forum.Models
         public string phone { get; set; }
         public DateTime DoB { get; set; }
         public bool RememberMe { get; set; }
+        [ForeignKey("SchoolId")]
+        public int SchoolId { get; set; }
+        public School School { get; set; }
 
     }
 

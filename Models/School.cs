@@ -1,7 +1,10 @@
-﻿namespace Forum.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Forum.Models
 {
     public class School
     {
+        [Key]
         public int Id { get; set; }
         public string Email { get; set; }
         public int PricipalId { get; set; }
