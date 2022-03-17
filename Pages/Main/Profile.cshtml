@@ -1,0 +1,151 @@
+﻿@page
+@model Forum.Pages.Main.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    string dateNow = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<div class="w-75 h-100 m-auto" id="profile">
+    @*menu block*@
+    <div class="w-75 mainItem m-auto">
+        <ul class="headLess d-flex flex-row titleMn">
+            <li class="border-right">
+                <a asp-page="/Main/Home">Home</a>
+            </li>
+            <li class="border-right">
+                <a asp-page="/Error404">Pending</a>
+            </li>
+            @*put user page url here*@
+            <li class="border-right">
+                <a asp-page="/Main/Profile">Profile page</a>
+            </li>
+            <li class="border-right">
+                <a asp-page="/Error404">School manage</a>
+            </li>
+        </ul>
+    </div>
+    @*main profile block*@
+    <div class="w-75 mainItem m-auto">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="d-block border mb-2 sqrt" src="@(Model.Account?.Avatar == null? "/Resource/Logo.png" : Model.Account.Avatar)" alt="test" loading="lazy">
+                    <ul class="headLess">
+                        <li>
+                            <a asp-page="/Error404">Change avatar</a>
+                        </li>
+                        <li>
+                            <a href="/Error404">Change avatar</a>
+                        </li>
+                        <li>
+                            <a href="/Error404">Deactive account</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 border p-4">
+                    <div id="Contact" class="tabcontent text-left">
+                        <div class="container-fluid">
+                            <div class="row border p-2">
+                                <form class="w-100" id="changeInfo" method="post">
+                                    <div class="col">
+                                        @*uid*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.Id"></label>
+                                            <input type="text" readonly class="form-control" id="id" asp-for="Account.Id">
+                                        </div>
+                                        @*name*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.Username"></label>
+                                            <input type="text" readonly class="form-control" aria-describedby="wrgName" id="name" asp-for="Account.Username" placeholder="Enter name">
+                                            <span asp-validation-for="Account.Username" id="wrgName" hidden class="form-text text-warning"></span>
+                                        </div>
+                                        @*gender*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.gender">Gender</label>
+                                            <select asp-for="Account.gender" id="gender" class="form-control" disabled>
+                                                <option selected disabled value="@Model.Account.gender">@Model.Account.gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                        @*school*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.SchoolId">School</label>
+                                            <select asp-for="schoolId" asp-items="Model.SchoolList" id="school" class="form-control" >
+                                            </select>
+                                        </div>
+                                        @*date of birth*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.DoB">Date of birth</label>
+                                            <input asp-for="Account.DoB" type="date" readonly class="form-control" id="dob" placeholder="Chose a day">
+                                        </div>
+                                        @*address*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.Address">Address</label>
+                                            <input asp-for="Account.Address" type="text" readonly class="form-control" aria-describedby="wrgAddr" id="addr" placeholder="Enter address">
+                                            <span asp-validation-for="Account.Address" id="wrgAddr" hidden class="form-text text-warning"></span>
+                                        </div>
+                                        @*phone*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.phone">Phone</label>
+                                            <input asp-for="Account.phone" type="text" readonly class="form-control" aria-describedby="wrgPhn" id="phone" placeholder="Enter phone number">
+                                            <small id="wrgPhn" hidden class="form-text text-warning"></small>
+                                        </div>
+
+                                        @*class*@
+                                        <div class="form-group">
+                                            <label asp-for="Account.Class" for="clss">Class</label>
+                                            <input asp-for="Account.Class" type="text" readonly class="form-control" id="clss">
+                                        </div>
+                                        <div class="container-fluid pl-0">
+                                            <div class="row justify-content-start">
+                                                <div class="col col-lg-2">
+                                                    <button type="button" class="profileBtn" id="editBtn">
+                                                        <i class="fas fa-edit fa-2x"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="submit" class="profileBtn" id="submitBtn" disabled>
+                                                        <i class="fas fa-save fa-2x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="UserPost" class="tabcontent text-center">
+                        <img class="sqrt" src="../Resource/404.jpg" alt="404" loading="lazy">
+                        <h2 class="text-danger">The page you are requesting is either not valid or under construction</h2>
+                    </div>
+                    <div id="Security" class="tabcontent text-center">
+                        <img class="sqrt" src="../Resource/404.jpg" alt="404" loading="lazy">
+                        <h2 class="text-danger">The page you are requesting is either not valid or under construction</h2>
+                    </div>
+                    <div id="Friends" class="tabcontent text-center">
+                        <img class="sqrt" src="../Resource/404.jpg" alt="404" loading="lazy">
+                        <h2 class="text-danger">The page you are requesting is either not valid or under construction</h2>
+                    </div>
+                </div>
+                <div class="col col-sm-2 pl-0">
+                    <div class="tab w-100 mt-5">
+                        <button class="tabLk border-left-0" onclick="openTab(event, 'Contact')" id="defaultOpen">Contact</button>
+
+                        <button class="tabLk border-left-0" onclick="openTab(event, 'UserPost')">User posts</button>
+
+                        <button class="tabLk border-left-0" onclick="openTab(event, 'Security')">Security</button>
+
+                        <button class="tabLk border-left-0" onclick="openTab(event, 'Friends')">Friends</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- up btn-->
+    <span class="go_top">
+        <i class="fas fa-chevron-up fa-3x"></i>
+    </span>
+</div>

@@ -79,3 +79,5 @@ E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFram
 E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 E:\Hoctap\GitHUB\Forum\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\SignIn\Logout.cshtml.g.cs
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\Main\Home.cshtml.g.cs
+E:\Hoctap\GitHUB\Forum\obj\Debug\net5.0\Razor\Pages\Main\Profile.cshtml.g.cs

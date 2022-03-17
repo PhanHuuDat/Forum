@@ -36,7 +36,6 @@ namespace Forum.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConfirmPassword")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DoB")
@@ -56,8 +55,10 @@ namespace Forum.Migrations
                     b.Property<bool>("RememberMe")
                         .HasColumnType("bit");
 
+                    b.Property<int>("SchoolId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("gender")
@@ -67,6 +68,8 @@ namespace Forum.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolId");
 
                     b.ToTable("Account");
                 });
@@ -227,6 +230,17 @@ namespace Forum.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("View");
+                });
+
+            modelBuilder.Entity("Forum.Models.Account", b =>
+                {
+                    b.HasOne("Forum.Models.School", "School")
+                        .WithMany()
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("School");
                 });
 
             modelBuilder.Entity("Forum.Models.Comment", b =>

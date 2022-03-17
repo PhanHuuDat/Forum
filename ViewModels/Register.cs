@@ -16,5 +16,7 @@ namespace Forum.ViewModels
         [Compare(nameof(Password), ErrorMessage = "Password and confirmation password did not match.")]
         public string ConfirmPassword { get; set; }
         public string Position { get; set; }
+        [Display(Name ="School Id")]
+        public int SchoolId { get; set; }
     }
 }

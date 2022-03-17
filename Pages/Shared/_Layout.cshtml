@@ -9,19 +9,19 @@
     <title>@ViewData["Title"] - Forum</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" />
+    <link rel="stylesheet" href="~/css/Input.css" />
+    <link rel="stylesheet" href="~/css/Main.css" />
     <script src="https://kit.fontawesome.com/7de8aab842.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Forum</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img class="mainLogo" src="~/Resource/logo.png" alt="logo" loading="lazy">
+                </a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
@@ -30,13 +30,23 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="GPost/Index">Posts</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/GPost/Index">Posts</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Main/Home">Home</a>
+
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Main/Profile">Profile</a>
+                            </li>
+                        }
+
                     </ul>
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
                         @if (!SignInManager.IsSignedIn(User))
                         {
-
                             <li class="nav-item">
                                 <a class="btn btn-primary" asp-area="" asp-page="/SignIn/Login">Login</a>
                             </li>
@@ -46,8 +56,23 @@
                         }
                         else
                         {
+                            <li class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                                    <img class="avatar" src="../Resource/logo.png" alt="avatar" loading="lazy">
+                                </a>
+                                <div class="notifyMnHolder">
+                                    <span class="text-dark icoTool">
+                                        <i class="fa fa-bell fa-2x" aria-hidden="true"></i>
+                                    </span>
+                                    <div class="notifyMn border-bottom box-shadow">
+                                        <p>There are no notify yet </p>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="nav-item">
-                                <a class="btn btn-primary" asp-area="" asp-page="/SignIn/Logout">Logout</a>
+                                <a class="text-dark icoTool" asp-area="" asp-page="/SignIn/Logout">
+                                    <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+                                </a>
                             </li>
                         }
                     </ul>
