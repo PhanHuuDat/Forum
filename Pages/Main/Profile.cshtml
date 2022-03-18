@@ -71,8 +71,7 @@
                                         @*school*@
                                         <div class="form-group">
                                             <label asp-for="Account.SchoolId">School</label>
-                                            <select asp-for="schoolId" asp-items="Model.SchoolList" id="school" class="form-control" >
-                                            </select>
+                                            <input type="text" readonly class="form-control" id="id" asp-for="Account.School.SchoolName">
                                         </div>
                                         @*date of birth*@
                                         <div class="form-group">

@@ -8,7 +8,7 @@ namespace Forum.Models
         [Key]
         public int Id { get; set; }
         public DateTime CommentTime { get; set; }
-        public string AttchmentUrl { get; set; }
+        public string Content { get; set; }
         public int UserId { get; set; }
         public Account Account { get; set; }
         public int PostId { get; set; }

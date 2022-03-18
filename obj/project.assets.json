@@ -5958,11 +5958,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Hoctap\\GitHUB\\Forum\\Forum.csproj",
+      "projectUniqueName": "E:\\Hoctap\\GitHUB\\Forum2\\Forum.csproj",
       "projectName": "Forum",
-      "projectPath": "E:\\Hoctap\\GitHUB\\Forum\\Forum.csproj",
+      "projectPath": "E:\\Hoctap\\GitHUB\\Forum2\\Forum.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "E:\\Hoctap\\GitHUB\\Forum\\obj\\",
+      "outputPath": "E:\\Hoctap\\GitHUB\\Forum2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -22,9 +22,7 @@ namespace Forum.Pages.Main
         [BindProperty]
         public Account Account { get; set; }
         [BindProperty]
-        public IEnumerable<SelectListItem> SchoolList { get; set; }
-        [BindProperty]
-        public string schoolId { get; set; }
+        public string schoolName { get; set; }
         public ProfileModel(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
@@ -35,11 +33,6 @@ namespace Forum.Pages.Main
             Account = JsonConvert.DeserializeObject<Account>(HttpContext.Session.GetString("user"));
             Account.School = _applicationDbContext.School.FirstOrDefault(u => u.Id == Account.SchoolId);
             
-            SchoolList = _applicationDbContext.School.ToList().AsEnumerable().Select(c => new SelectListItem()
-            {
-                Text = c.SchoolName,
-                Value = c.Id.ToString(),
-            });
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -49,7 +42,7 @@ namespace Forum.Pages.Main
             newUpdate.Address = Account.Address;
             newUpdate.Username = Account.Username;
             newUpdate.DoB = Account.DoB;
-            newUpdate.SchoolId = int.Parse(schoolId);
+            newUpdate.SchoolId = Account.SchoolId;
             newUpdate.Class = Account.Class;
             newUpdate.phone = Account.phone;
             newUpdate.gender = Account.gender;
