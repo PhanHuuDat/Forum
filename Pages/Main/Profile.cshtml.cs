@@ -42,7 +42,6 @@ namespace Forum.Pages.Main
             newUpdate.Address = Account.Address;
             newUpdate.Username = Account.Username;
             newUpdate.DoB = Account.DoB;
-            newUpdate.SchoolId = Account.SchoolId;
             newUpdate.Class = Account.Class;
             newUpdate.phone = Account.phone;
             newUpdate.gender = Account.gender;

@@ -1,9 +1,11 @@
 using Forum.Data;
 using Forum.Models;
 using Forum.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,7 +35,7 @@ namespace Forum.Pages.SignIn
             {             
                 var user = new IdentityUser()
                 {
-                    UserName = Account.Username,
+                    UserName = Account.Email,
                     Email = Account.Email
                 };
                 var result = await _userManager.CreateAsync(user, Account.Password);
@@ -50,6 +52,7 @@ namespace Forum.Pages.SignIn
 
                 };
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    HttpContext.Session.SetString("user", JsonConvert.SerializeObject(newAcc));
                     _applicationDbContext.Add(newAcc);
                     _applicationDbContext.SaveChanges();
                     return RedirectToPage("/Index");
@@ -57,6 +60,7 @@ namespace Forum.Pages.SignIn
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
+
                 }
             }
             return Page();
